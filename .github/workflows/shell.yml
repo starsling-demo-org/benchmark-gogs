@@ -1,8 +1,8 @@
 name: Shell
 on:
-  push:
-    branches: [ main ]
+  # bench-only: run on each PR into starsling/develop; no push trigger.
   pull_request:
+    branches: [ starsling/develop ]
 
 permissions:
   contents: read
@@ -10,7 +10,7 @@ permissions:
 jobs:
   shellcheck:
     name: Shellcheck
-    runs-on: ubuntu-latest
+    runs-on: starsling-ubuntu-26.04
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - name: Run ShellCheck

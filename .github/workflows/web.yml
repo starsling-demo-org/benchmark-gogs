@@ -1,17 +1,8 @@
 name: Web
 on:
-  push:
-    branches:
-      - main
-      - 'release/**'
-    paths:
-      - 'web/**'
-      - 'pnpm-lock.yaml'
-      - 'pnpm-workspace.yaml'
-      - 'package.json'
-      - 'conf/locale/locale_*.ini'
-      - '.github/workflows/web.yml'
+  # bench-only: run on each PR into starsling/develop; no push trigger.
   pull_request:
+    branches: [ starsling/develop ]
     paths:
       - 'web/**'
       - 'pnpm-lock.yaml'
@@ -26,7 +17,7 @@ permissions:
 jobs:
   web:
     name: Lint and build
-    runs-on: ubuntu-latest
+    runs-on: starsling-ubuntu-26.04
     env:
       MOON_COLOR: "true"
       FORCE_COLOR: "1"

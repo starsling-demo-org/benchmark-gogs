@@ -1,15 +1,8 @@
 name: Go
 on:
-  push:
-    branches:
-      - main
-      - 'release/**'
-    paths:
-      - '**.go'
-      - 'go.mod'
-      - '.golangci.yml'
-      - '.github/workflows/go.yml'
+  # bench-only: run on each PR into starsling/develop; no push trigger.
   pull_request:
+    branches: [ starsling/develop ]
     paths:
       - '**.go'
       - 'go.mod'
@@ -27,7 +20,7 @@ jobs:
       contents: read       # for actions/checkout to fetch code
       pull-requests: read  # for golangci/golangci-lint-action to fetch pull requests
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: starsling-ubuntu-26.04
     steps:
       - name: Check out code
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
@@ -58,7 +51,7 @@ jobs:
     strategy:
       matrix:
         go-version: [ 1.27.x ]
-        platform: [ ubuntu-latest, macos-latest ]
+        platform: [ starsling-ubuntu-26.04, macos-26 ]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Check out code
@@ -86,7 +79,7 @@ jobs:
     strategy:
       matrix:
         go-version: [ 1.27.x ]
-        platform: [ windows-latest ]
+        platform: [ windows-2025-4core ]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Check out code
@@ -109,7 +102,7 @@ jobs:
     strategy:
       matrix:
         go-version: [ 1.27.x ]
-        platform: [ ubuntu-latest ]
+        platform: [ starsling-ubuntu-26.04 ]
     runs-on: ${{ matrix.platform }}
     services:
       postgres:
@@ -148,7 +141,7 @@ jobs:
     strategy:
       matrix:
         go-version: [ 1.27.x ]
-        platform: [ ubuntu-22.04 ] # Use the lowest version possible for backwards compatibility
+        platform: [ starsling-ubuntu-24.04 ] # Use the lowest version possible for backwards compatibility
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Start MySQL server
