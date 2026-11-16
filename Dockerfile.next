@@ -1,3 +1,5 @@
+FROM --platform=$BUILDPLATFORM tonistiigi/xx:1.9.0 AS xx
+
 FROM --platform=$BUILDPLATFORM node:24-alpine3.24@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 AS webbuilder
 RUN corepack enable
 WORKDIR /src
@@ -7,20 +9,35 @@ COPY conf/locale ./conf/locale
 RUN pnpm install --frozen-lockfile
 RUN pnpm --filter gogs-web run build
 
-FROM golang:1.27-alpine3.24@sha256:fa3d596898d9f126af7c01d14ee7597bab3f39cccf392ef36b69fe77cd681f18 AS binarybuilder
+# Cross-compile on the build platform instead of compiling under QEMU: xx sets GOOS/GOARCH/GOARM from
+# TARGETPLATFORM and gives cgo (the pam tag) a clang cross toolchain against the target's musl.
+FROM --platform=$BUILDPLATFORM golang:1.27-alpine3.24@sha256:fa3d596898d9f126af7c01d14ee7597bab3f39cccf392ef36b69fe77cd681f18 AS binarybuilder
+COPY --from=xx / /
 RUN apk --no-cache --no-progress add --virtual \
   build-deps \
   build-base \
   git \
-  linux-pam-dev
+  clang
 
 WORKDIR /gogs.io/gogs
+COPY go.mod go.sum ./
+RUN go mod download
+ARG TARGETPLATFORM
+RUN xx-apk --no-cache --no-progress add musl-dev gcc linux-pam-dev
+# GNU ld for the target, so clang links with the same linker as the emulated gcc build (lld makes the
+# Go debug sections about 1.2 MB bigger).
+RUN case "$(xx-info arch)" in \
+      arm64) apk add --no-cache --no-progress binutils-aarch64 ;; \
+      arm) apk add --no-cache --no-progress binutils-armv7 ;; \
+    esac
 COPY . .
 COPY --from=webbuilder /src/public/dist ./public/dist
 
-RUN go build -v -trimpath -tags "pam prod" \
+ENV CGO_ENABLED=1
+RUN xx-go build -v -trimpath -tags "pam prod" \
   -ldflags "-X 'gogs.io/gogs/internal/conf.BuildTime=$(date -u '+%Y-%m-%d %I:%M:%S %Z')' -X 'gogs.io/gogs/internal/conf.BuildCommit=$(git rev-parse HEAD)'" \
-  -o .bin/gogs ./cmd/gogs
+  -o .bin/gogs ./cmd/gogs && \
+  xx-verify .bin/gogs
 
 FROM alpine:3.24@sha256:f59abe656b692d901e184be3445e084786602108599d2a51d229c0f5a48c71bf
 
