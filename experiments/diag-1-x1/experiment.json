@@ -1,0 +1,1335 @@
+{
+  "schemaVersion": 1,
+  "manifest": {
+    "schemaVersion": 1,
+    "experimentId": "diag-1-x1",
+    "inputFingerprint": "0e665efda8171fa6bb8ec714a51da409a7c9c77236a8039598264d2106f97731",
+    "samples": [
+      {
+        "sampleId": "diag-1-x1-main-push-cold-rep1-starsling-baseline",
+        "scenarioName": "main-push",
+        "profileName": "cold",
+        "variant": "starsling-baseline",
+        "repetition": 1
+      }
+    ]
+  },
+  "config": {
+    "schemaVersion": 1,
+    "upstream": {
+      "repository": "gogs/gogs",
+      "commitSha": "00062cc78626a7349da9af742be97fae41288542",
+      "defaultBranch": "main"
+    },
+    "benchmarkRepository": {
+      "repository": "starsling-demo-org/benchmark-gogs",
+      "controlBranch": "bench/control",
+      "defaultBranch": "showcase",
+      "replayBranch": "main"
+    },
+    "scenarios": {
+      "main-push": {
+        "name": "main-push",
+        "description": "Merge of 00062cc78626 to main",
+        "event": "push",
+        "main": {
+          "branch": "main",
+          "beforeSha": "8a8ebb1f45fe56d8906e86cb0d453a6f39903d7a",
+          "afterSha": "00062cc78626a7349da9af742be97fae41288542",
+          "changedPaths": [
+            ".github/workflows/docker.yml",
+            "docker/build/finalize.sh"
+          ]
+        },
+        "referenceRuns": [
+          {
+            "workflowPath": ".github/workflows/docker.yml",
+            "runId": 42738563561,
+            "attempt": 1,
+            "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563561"
+          },
+          {
+            "workflowPath": ".github/workflows/release.yml",
+            "runId": 42738563665,
+            "attempt": 1,
+            "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563665"
+          },
+          {
+            "workflowPath": ".github/workflows/shell.yml",
+            "runId": 42738563871,
+            "attempt": 1,
+            "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563871"
+          }
+        ]
+      },
+      "seed-parent": {
+        "name": "seed-parent",
+        "role": "seed",
+        "description": "Warm seed: the previous push (8a8ebb1f45fe onto 1f93c4245d9b)",
+        "event": "push",
+        "main": {
+          "branch": "main",
+          "beforeSha": "1f93c4245d9b67b388ee39a03a967494fae8f0ad",
+          "afterSha": "8a8ebb1f45fe56d8906e86cb0d453a6f39903d7a",
+          "changedPaths": [
+            "CHANGELOG.md",
+            "cmd/gogs/internal/web/repo_context.go",
+            "cmd/gogs/internal/web/web_repo.go",
+            "cmd/gogs/internal/web/webapi_repo.go",
+            "cmd/gogs/serv.go",
+            "internal/context/auth.go",
+            "internal/database/users.go",
+            "internal/ptrx/ptrx.go",
+            "internal/ptrx/ptrx_test.go",
+            "internal/route/home.go",
+            "internal/route/lfs/route.go",
+            "internal/route/lfs/route_test.go",
+            "internal/route/repo/http.go"
+          ]
+        },
+        "referenceRuns": []
+      }
+    },
+    "patches": [],
+    "runnerMapping": {
+      "defaultMap": {
+        "ubuntu-latest": {
+          "github": "ubuntu-26.04-4core",
+          "starsling": "starsling-ubuntu-26.04"
+        },
+        "ubuntu-24.04": {
+          "github": "TODO-github-larger-runner-for-ubuntu-24.04",
+          "starsling": "starsling-ubuntu-24.04"
+        },
+        "ubuntu-26.04": {
+          "github": "TODO-github-larger-runner-for-ubuntu-26.04",
+          "starsling": "starsling-ubuntu-26.04"
+        },
+        "ubuntu-slim": {
+          "github": "TODO-github-larger-runner-for-ubuntu-slim",
+          "starsling": "starsling-ubuntu-24.04-2"
+        },
+        "ubuntu-22.04": {
+          "github": "ubuntu-22.04-4core",
+          "starsling": "starsling-ubuntu-24.04"
+        },
+        "macos-latest": {
+          "github": "macos-26",
+          "starsling": "macos-26"
+        },
+        "windows-latest": {
+          "github": "windows-2025-4core",
+          "starsling": "windows-2025-4core"
+        }
+      },
+      "runnerSpecs": {
+        "ubuntu-latest": {
+          "label": "ubuntu-latest",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "ubuntu-24.04": {
+          "label": "ubuntu-24.04",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "ubuntu-26.04": {
+          "label": "ubuntu-26.04",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "ubuntu-slim": {
+          "label": "ubuntu-slim",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 1,
+          "ramGiB": 5,
+          "billingPerMinuteUsd": 0.004
+        },
+        "starsling-ubuntu-24.04-2": {
+          "label": "starsling-ubuntu-24.04-2",
+          "provider": "starsling",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 2,
+          "ramGiB": 8,
+          "billingPerMinuteUsd": 0.004
+        },
+        "starsling-ubuntu-24.04": {
+          "label": "starsling-ubuntu-24.04",
+          "provider": "starsling",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.008
+        },
+        "starsling-ubuntu-26.04": {
+          "label": "starsling-ubuntu-26.04",
+          "provider": "starsling",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.008
+        },
+        "macos-latest": {
+          "label": "macos-latest",
+          "provider": "github",
+          "os": "macos",
+          "arch": "arm64",
+          "vcpu": 3,
+          "ramGiB": 7,
+          "billingPerMinuteUsd": 0.08
+        },
+        "windows-latest": {
+          "label": "windows-latest",
+          "provider": "github",
+          "os": "windows",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.032
+        },
+        "TODO-github-larger-runner-for-ubuntu-latest": {
+          "label": "TODO-github-larger-runner-for-ubuntu-latest",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "TODO-github-larger-runner-for-ubuntu-24.04": {
+          "label": "TODO-github-larger-runner-for-ubuntu-24.04",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "TODO-github-larger-runner-for-ubuntu-26.04": {
+          "label": "TODO-github-larger-runner-for-ubuntu-26.04",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "TODO-github-larger-runner-for-ubuntu-slim": {
+          "label": "TODO-github-larger-runner-for-ubuntu-slim",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 1,
+          "ramGiB": 5,
+          "billingPerMinuteUsd": 0.004
+        },
+        "ubuntu-26.04-4core": {
+          "label": "ubuntu-26.04-4core",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "ubuntu-22.04-4core": {
+          "label": "ubuntu-22.04-4core",
+          "provider": "github",
+          "os": "linux",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "macos-26": {
+          "label": "macos-26",
+          "provider": "github",
+          "os": "macos",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        },
+        "windows-2025-4core": {
+          "label": "windows-2025-4core",
+          "provider": "github",
+          "os": "windows",
+          "arch": "x64",
+          "vcpu": 4,
+          "ramGiB": 16,
+          "billingPerMinuteUsd": 0.016
+        }
+      },
+      "jobOverrides": {
+        ".github/workflows/go.yml#test-windows": {
+          "github": "windows-2025-4core",
+          "starsling": "windows-2025-4core"
+        }
+      }
+    },
+    "profiles": {
+      "cold": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "warm": {
+        "name": "warm",
+        "actionsCache": "warm",
+        "crossRunArtifacts": "seeded",
+        "seedScenario": "seed-parent",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": true,
+        "amortizationHorizonRuns": 10
+      }
+    },
+    "adaptations": [
+      {
+        "id": "repo-gate-open",
+        "kind": "repository-identity-remap",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "github.repository == 'gogs/gogs'",
+        "toReplacement": "github.repository == 'starsling-demo-org/benchmark-gogs'",
+        "expectedMatches": 1,
+        "reason": "buildx-next: upstream runs the push-lane Docker job only in gogs/gogs; the repository name in its if: is remapped to the benchmark repo (rest of the guard kept)",
+        "blocksFullParity": false
+      },
+      {
+        "id": "no-registry-login-dockerhub",
+        "kind": "workflow-setting",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "",
+        "toReplacement": "",
+        "expectedMatches": 0,
+        "setPath": [
+          "steps",
+          "5",
+          "if"
+        ],
+        "setValue": false,
+        "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-registry-login-ghcr",
+        "kind": "workflow-setting",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "",
+        "toReplacement": "",
+        "expectedMatches": 0,
+        "setPath": [
+          "steps",
+          "6",
+          "if"
+        ],
+        "setValue": false,
+        "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-registry-login-digitalocean",
+        "kind": "workflow-setting",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "",
+        "toReplacement": "",
+        "expectedMatches": 0,
+        "setPath": [
+          "steps",
+          "7",
+          "if"
+        ],
+        "setValue": false,
+        "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-image-push",
+        "kind": "workflow-setting",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "",
+        "toReplacement": "",
+        "expectedMatches": 0,
+        "setPath": [
+          "steps",
+          "8",
+          "with",
+          "push"
+        ],
+        "setValue": false,
+        "reason": "buildx-next must not publish gogs/gogs:edge, ghcr or DigitalOcean images (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-trivy-scan",
+        "kind": "workflow-setting",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "",
+        "toReplacement": "",
+        "expectedMatches": 0,
+        "setPath": [
+          "steps",
+          "9",
+          "if"
+        ],
+        "setValue": false,
+        "reason": "Trivy scans the pushed image, which does not exist (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-demo-deploy",
+        "kind": "deployment-guard",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "deploy-demo",
+        "fromPattern": "github.event_name == 'push'",
+        "toReplacement": "false && github.event_name == 'push'",
+        "expectedMatches": 1,
+        "reason": "deploy-demo needs the DigitalOcean kubeconfig; upstream's job if: kept, 'false &&' in front",
+        "blocksFullParity": true
+      },
+      {
+        "id": "no-failure-email-docker",
+        "kind": "deployment-guard",
+        "workflowFile": ".github/workflows/docker.yml",
+        "fromPattern": "failure()",
+        "toReplacement": "false && failure()",
+        "expectedMatches": 4,
+        "reason": "send-email-on-failure steps in docker.yml (4: buildx-next, deploy-demo, buildx-release, buildx-next-release): no SMTP secrets; upstream's failure() guard kept",
+        "blocksFullParity": false
+      },
+      {
+        "id": "no-failure-email-go",
+        "kind": "deployment-guard",
+        "workflowFile": ".github/workflows/go.yml",
+        "fromPattern": "failure() && github.event_name == 'push'",
+        "toReplacement": "false && failure() && github.event_name == 'push'",
+        "expectedMatches": 2,
+        "reason": "send-email-on-failure steps in go.yml (2): no SMTP secrets; upstream's guard kept",
+        "blocksFullParity": false
+      },
+      {
+        "id": "identity-deploy-demo",
+        "kind": "repository-identity-remap",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "deploy-demo",
+        "fromPattern": "github.repository == 'gogs/gogs'",
+        "toReplacement": "github.repository == 'starsling-demo-org/benchmark-gogs'",
+        "expectedMatches": 1,
+        "reason": "docker.yml job deploy-demo: identity remapped to the benchmark repo like repo-gate-open; the job stays off through no-demo-deploy ('false &&' in front)",
+        "blocksFullParity": false
+      },
+      {
+        "id": "no-release-build",
+        "kind": "repository-identity-remap",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "github.repository == 'gogs/gogs'",
+        "toReplacement": "false && github.repository == 'gogs/gogs'",
+        "expectedMatches": 1,
+        "reason": "release.yml job build: upstream builds, signs and notarizes release archives on main pushes with Apple secrets that do not exist here; gated on gogs/gogs, so it already skips in the benchmark repo. Kept off explicitly. OWNER: upstream did run it on the pinned push, so this skips upstream work",
+        "blocksFullParity": true
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-dockerhub-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-dockerhub-token",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-digitalocean-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.DIGITALOCEAN_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DIGITALOCEAN_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-digitalocean-access-token",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DIGITALOCEAN_ACCESS_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-deploy-demo-digitalocean-k8s-cluster-kubeconfig",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "deploy-demo",
+        "fromPattern": "${{ secrets.DIGITALOCEAN_K8S_CLUSTER_KUBECONFIG }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DIGITALOCEAN_K8S_CLUSTER_KUBECONFIG does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-deploy-demo-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "deploy-demo",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-deploy-demo-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "deploy-demo",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-release-dockerhub-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-release",
+        "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-release-dockerhub-token",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-release",
+        "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-release-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-release",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-release-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-release",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-release-dockerhub-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next-release",
+        "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-release-dockerhub-token",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next-release",
+        "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-release-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next-release",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-docker-buildx-next-release-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/docker.yml",
+        "jobId": "buildx-next-release",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-developer-id-certificate-base64",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_DEVELOPER_ID_CERTIFICATE_BASE64 }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_DEVELOPER_ID_CERTIFICATE_BASE64 does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-developer-id-certificate-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_DEVELOPER_ID_CERTIFICATE_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_DEVELOPER_ID_CERTIFICATE_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-keychain-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_KEYCHAIN_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_KEYCHAIN_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-developer-identity",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_DEVELOPER_IDENTITY }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_DEVELOPER_IDENTITY does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-notary-issuer-id",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_NOTARY_ISSUER_ID }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_NOTARY_ISSUER_ID does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-notary-key-base64",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_NOTARY_KEY_BASE64 }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_NOTARY_KEY_BASE64 does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-build-apple-notary-key-id",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "build",
+        "fromPattern": "${{ secrets.APPLE_NOTARY_KEY_ID }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "APPLE_NOTARY_KEY_ID does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-notify-failure-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "notify-failure",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-release-notify-failure-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/release.yml",
+        "jobId": "notify-failure",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-go-test-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/go.yml",
+        "jobId": "test",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-go-test-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/go.yml",
+        "jobId": "test",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-go-test-windows-smtp-username",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/go.yml",
+        "jobId": "test-windows",
+        "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      },
+      {
+        "id": "secret-gate-go-test-windows-smtp-password",
+        "kind": "secret-gate-annotation",
+        "workflowFile": ".github/workflows/go.yml",
+        "jobId": "test-windows",
+        "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+        "toReplacement": "",
+        "expectedMatches": 1,
+        "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+        "blocksFullParity": false
+      }
+    ],
+    "collectors": [],
+    "execution": {
+      "repetitions": 5,
+      "timeoutMinutes": 60,
+      "maxConcurrentExperiments": 1,
+      "pollIntervalSeconds": 15,
+      "apiBudgetPerHour": 252,
+      "maxJobQueueSeconds": 30,
+      "publicRepoGitHubFree": true,
+      "excludedJobs": [
+        {
+          "workflowFile": ".github/workflows/web.yml",
+          "jobId": "web",
+          "reason": "fails in every setup in the replay (ambiguous argument main: compares against a branch the replay checkout lacks); unrelated to the Docker lever; owner-default decision 2026-11-15"
+        }
+      ],
+      "commitIdentity": {
+        "name": "starsling-dev",
+        "email": "290538643+starsling-dev@users.noreply.github.com"
+      }
+    },
+    "instrumentation": true
+  },
+  "samples": [
+    {
+      "sampleId": "diag-1-x1-main-push-cold-rep1-starsling-baseline",
+      "repetition": 1,
+      "scenarioName": "main-push",
+      "variant": "starsling-baseline",
+      "profileName": "cold",
+      "complete": true,
+      "incompleteReasons": [],
+      "missingWorkflows": [],
+      "missingJobs": [],
+      "cancelledJobs": [],
+      "failedJobs": [],
+      "partialTimestampJobs": [],
+      "timestampResolution": "1s",
+      "metrics": {
+        "repoMinutes": 11.1167,
+        "rawRunnerSeconds": 667,
+        "wallClockSeconds": 670,
+        "prWallClockSeconds": null,
+        "mainWallClockSeconds": 670,
+        "triggerLatencySeconds": 4,
+        "harnessOverheadSeconds": 0,
+        "maxJobQueueSeconds": 6,
+        "maxJobQueueLabel": "starsling-ubuntu-26.04"
+      },
+      "workflows": [
+        {
+          "runId": 43802945785,
+          "runAttempt": 1,
+          "priorAttemptsCount": 0,
+          "workflowPath": ".github/workflows/release.yml",
+          "workflowName": "Release",
+          "event": "push",
+          "conclusion": "skipped",
+          "durationSeconds": null,
+          "startedAt": "2026-11-16T04:15:09Z",
+          "completedAt": null,
+          "htmlUrl": "https://github.com/starsling-demo-org/benchmark-gogs/actions/runs/43802945785",
+          "jobs": [
+            {
+              "jobRecordId": 133087169708,
+              "runId": 43802945785,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/release.yml",
+              "jobName": "Notify on failure",
+              "logicalJobId": "Notify on failure",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            },
+            {
+              "jobRecordId": 133087170390,
+              "runId": 43802945785,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/release.yml",
+              "jobName": "Build ${{ matrix.goos }}/${{ matrix.goarch }}${{ matrix.suffix }}",
+              "logicalJobId": "Build ${{ matrix.goos }}/${{ matrix.goarch }}${{ matrix.suffix }}",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [],
+              "steps": []
+            }
+          ],
+          "artifacts": []
+        },
+        {
+          "runId": 43802945892,
+          "runAttempt": 1,
+          "priorAttemptsCount": 0,
+          "workflowPath": ".github/workflows/shell.yml",
+          "workflowName": "Shell",
+          "event": "push",
+          "conclusion": "success",
+          "durationSeconds": 11,
+          "startedAt": "2026-11-16T04:15:09Z",
+          "completedAt": "2026-11-16T04:15:20Z",
+          "htmlUrl": "https://github.com/starsling-demo-org/benchmark-gogs/actions/runs/43802945892",
+          "jobs": [
+            {
+              "jobRecordId": 133087168087,
+              "runId": 43802945892,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/shell.yml",
+              "jobName": "Shellcheck",
+              "logicalJobId": "shellcheck",
+              "conclusion": "success",
+              "durationSeconds": 4,
+              "dependencyWaitSeconds": 0,
+              "runnerQueueSeconds": 6,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": [
+                {
+                  "number": 1,
+                  "name": "Set up job",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 2,
+                  "name": "Set up runner",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 3,
+                  "name": "Benchmark event context (harness)",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": true
+                },
+                {
+                  "number": 4,
+                  "name": "Run actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+                  "conclusion": "success",
+                  "durationSeconds": 1,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 5,
+                  "name": "Run ShellCheck",
+                  "conclusion": "success",
+                  "durationSeconds": 1,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 9,
+                  "name": "Post Run actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 10,
+                  "name": "Complete runner",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 11,
+                  "name": "Complete job",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                }
+              ]
+            }
+          ],
+          "artifacts": []
+        },
+        {
+          "runId": 43802945774,
+          "runAttempt": 1,
+          "priorAttemptsCount": 0,
+          "workflowPath": ".github/workflows/docker.yml",
+          "workflowName": "Docker",
+          "event": "push",
+          "conclusion": "success",
+          "durationSeconds": 670,
+          "startedAt": "2026-11-16T04:15:09Z",
+          "completedAt": "2026-11-16T04:26:19Z",
+          "htmlUrl": "https://github.com/starsling-demo-org/benchmark-gogs/actions/runs/43802945774",
+          "jobs": [
+            {
+              "jobRecordId": 133087168068,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "buildx-next",
+              "logicalJobId": "buildx-next",
+              "conclusion": "success",
+              "durationSeconds": 663,
+              "dependencyWaitSeconds": 0,
+              "runnerQueueSeconds": 6,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": [
+                {
+                  "number": 1,
+                  "name": "Set up job",
+                  "conclusion": "success",
+                  "durationSeconds": 1,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 2,
+                  "name": "Set up runner",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 3,
+                  "name": "Benchmark event context (harness)",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": true
+                },
+                {
+                  "number": 4,
+                  "name": "Check out code",
+                  "conclusion": "success",
+                  "durationSeconds": 6,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 5,
+                  "name": "Set up QEMU",
+                  "conclusion": "success",
+                  "durationSeconds": 2,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 6,
+                  "name": "Set up Docker Buildx",
+                  "conclusion": "success",
+                  "durationSeconds": 3,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 7,
+                  "name": "Inspect builder",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 8,
+                  "name": "Login to Docker Hub",
+                  "conclusion": "skipped",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 9,
+                  "name": "Login to GitHub Container registry",
+                  "conclusion": "skipped",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 10,
+                  "name": "Login to DigitalOcean Container registry",
+                  "conclusion": "skipped",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 11,
+                  "name": "Build and push next-gen images",
+                  "conclusion": "success",
+                  "durationSeconds": 641,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 12,
+                  "name": "Scan for container vulnerabilities",
+                  "conclusion": "skipped",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 13,
+                  "name": "Send email on failure",
+                  "conclusion": "skipped",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 22,
+                  "name": "Post Build and push next-gen images",
+                  "conclusion": "success",
+                  "durationSeconds": 1,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 23,
+                  "name": "Post Set up Docker Buildx",
+                  "conclusion": "success",
+                  "durationSeconds": 5,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 24,
+                  "name": "Post Set up QEMU",
+                  "conclusion": "success",
+                  "durationSeconds": 2,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 25,
+                  "name": "Post Check out code",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 26,
+                  "name": "Complete runner",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                },
+                {
+                  "number": 27,
+                  "name": "Complete job",
+                  "conclusion": "success",
+                  "durationSeconds": 0,
+                  "resolution": "1s",
+                  "isHarnessInstrumentation": false
+                }
+              ]
+            },
+            {
+              "jobRecordId": 133087168978,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "buildx-pull-request",
+              "logicalJobId": "buildx-pull-request",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            },
+            {
+              "jobRecordId": 133087169573,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "buildx-release",
+              "logicalJobId": "buildx-release",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            },
+            {
+              "jobRecordId": 133087170028,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "buildx-next-release",
+              "logicalJobId": "buildx-next-release",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            },
+            {
+              "jobRecordId": 133087212468,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "buildx-next-pull-request",
+              "logicalJobId": "buildx-next-pull-request",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            },
+            {
+              "jobRecordId": 133090754328,
+              "runId": 43802945774,
+              "runAttempt": 1,
+              "workflowPath": ".github/workflows/docker.yml",
+              "jobName": "deploy-demo",
+              "logicalJobId": "deploy-demo",
+              "conclusion": "skipped",
+              "durationSeconds": 0,
+              "dependencyWaitSeconds": null,
+              "runnerQueueSeconds": null,
+              "resolution": "1s",
+              "labels": [
+                "starsling-ubuntu-26.04"
+              ],
+              "steps": []
+            }
+          ],
+          "artifacts": [
+            {
+              "id": 14197393730,
+              "run_id": 43802945774,
+              "name": "starsling-demo-org~benchmark-gogs~V0P3IV.dockerbuild",
+              "size_in_bytes": 166598,
+              "sha256": "37b3012f4f95b9d18d753ecb4639513396b5bebfa759717dce8fcda05b50ea36",
+              "created_at": "2026-11-16T04:26:11Z",
+              "expired": false
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 14197393730,
+          "run_id": 43802945774,
+          "name": "starsling-demo-org~benchmark-gogs~V0P3IV.dockerbuild",
+          "size_in_bytes": 166598,
+          "sha256": "37b3012f4f95b9d18d753ecb4639513396b5bebfa759717dce8fcda05b50ea36",
+          "created_at": "2026-11-16T04:26:11Z",
+          "expired": false
+        }
+      ],
+      "inputFingerprint": "0e665efda8171fa6bb8ec714a51da409a7c9c77236a8039598264d2106f97731"
+    }
+  ],
+  "seedSamples": [],
+  "cacheSnapshots": {
+    "diag-1-x1-main-push-cold-rep1-starsling-baseline": [
+      {
+        "id": 10578130579,
+        "ref": "refs/heads/main",
+        "key": "docker.io--tonistiigi--binfmt-latest-linux-x64",
+        "version": "0f256030c2162b26c4af1b51965f055655033ea67381759b247836dd596e3432",
+        "last_accessed_at": "2026-11-16T04:02:46.593819Z",
+        "created_at": "2026-11-16T04:02:46.593819Z",
+        "size_in_bytes": 32698166
+      }
+    ]
+  },
+  "harnessHash": "78227321cbf08a4c44576c72d06666e6bf8c25b904c78d397e5cf1d4a083b134",
+  "apiUsage": {
+    "budgetPerHour": 252,
+    "experiment": {
+      "calls": 55,
+      "notModified": 100,
+      "graphql": 0,
+      "byCategory": {
+        "other-read": 1,
+        "run-list": 9,
+        "workflows": 19,
+        "caches": 2,
+        "cache-delete": 1,
+        "workflow-write": 12,
+        "jobs": 5,
+        "job-logs": 2,
+        "artifacts": 4
+      },
+      "throttledMs": 652866,
+      "rateLimitWaitMs": 0
+    },
+    "samples": {
+      "diag-1-x1-main-push-cold-rep1-starsling-baseline": {
+        "calls": 39,
+        "notModified": 91,
+        "graphql": 0,
+        "byCategory": {
+          "run-list": 4,
+          "workflows": 15,
+          "workflow-write": 9,
+          "jobs": 5,
+          "job-logs": 2,
+          "artifacts": 4
+        },
+        "throttledMs": 539293,
+        "rateLimitWaitMs": 0
+      }
+    }
+  },
+  "cacheResets": [
+    "diag-1-x1-main-push-cold-rep1-starsling-baseline"
+  ]
+}

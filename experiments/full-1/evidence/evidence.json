@@ -1,0 +1,4432 @@
+[
+  {
+    "sampleId": "full-1-main-push-cold-rep1-starsling-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43806067812,
+      43806067769,
+      43806067820
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 602
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep1-github-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43807814067,
+      43807814051,
+      43807814038
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1496
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep1-starsling-patched",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43813027051,
+      43813026976,
+      43813027003
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 125
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep2-starsling-patched",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43813856705,
+      43813856672,
+      43813856730
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep2-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 116
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep2-starsling-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43814663695,
+      43814663616,
+      43814663607
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep2-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 657
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep2-github-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43816656858,
+      43816656892,
+      43816656860
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep2-github-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-github-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-github-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep2-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1543
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep3-starsling-patched",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43820287443,
+      43820287559,
+      43820287493
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-patched/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-patched/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-patched/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep3-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 119
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep3-github-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43821167620,
+      43821167683,
+      43821167673
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep3-github-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-github-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-github-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep3-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1473
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep3-starsling-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43824781997,
+      43824782004,
+      43824781976
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep3-starsling-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep3-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 596
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep4-github-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43826547864,
+      43826547868,
+      43826547873
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep4-github-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-github-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-github-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep4-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1526
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep4-starsling-patched",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43830563871,
+      43830563532,
+      43830563590
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-patched/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-patched/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-patched/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/shell.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep4-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 109
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep4-starsling-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43831589720,
+      43831589649,
+      43831589646
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep4-starsling-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep4-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 606
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep5-starsling-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43833835427,
+      43833835611,
+      43833835326
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep5-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 617
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep5-github-baseline",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43836043680,
+      43836043521,
+      43836043681
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep5-github-baseline/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-github-baseline/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-github-baseline/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-26.04-4core",
+              "starsling": "ubuntu-26.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml",
+        ".github/workflows/docker.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/shell.yml#shellcheck": 1,
+        ".github/workflows/docker.yml#buildx-next": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep5-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 2096
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep5-starsling-patched",
+    "inputFingerprint": "623fcd65df161062f51fa3f6d12664f0e465f27a7e4e18cca920cd4d5892a7ab",
+    "runIds": [
+      43841996889,
+      43841996637,
+      43841996661
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-patched/tests.json",
+        "sha256": "d52e651e6c25d4adbdd51f8eb4f115c5335b6dc173e3791ad7c117e1d0e812bb",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-patched/cache.json",
+        "sha256": "1a7b3b6eca4895ffed503a21f90a3e032edc95c4447bb45deb07560f2b9281ea",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep5-starsling-patched/coverage.json",
+        "sha256": "bda181c87308962fc317bd4bf3be4c1f2581ee662c3460b8e931c99f28c8f7a5",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/docker.yml",
+          ".github/workflows/release.yml",
+          ".github/workflows/shell.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/go.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          },
+          {
+            "filePath": ".github/workflows/lock.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/web.yml",
+            "reason": "Scenario changedPaths did not match workflow path filter"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "deploy-demo",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'starsling-demo-org/benchmark-gogs'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-pull-request",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'pull_request'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker.yml",
+            "workflowName": "Docker",
+            "jobId": "buildx-next-release",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: github.event_name == 'release'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "build",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: false && github.repository == 'gogs/gogs'",
+            "isDynamicMatrix": false,
+            "expectedMatrixCount": 11,
+            "mappedRunsOn": {
+              "github": "${{ matrix.runner }}",
+              "starsling": "${{ matrix.runner }}",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"${{ matrix.runner }}\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/release.yml",
+            "workflowName": "Release",
+            "jobId": "notify-failure",
+            "triggeredBy": "direct",
+            "expectedStatus": "skipped",
+            "skipReason": "Condition is false: failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/shell.yml",
+            "workflowName": "Shell",
+            "jobId": "shellcheck",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-26.04",
+              "starsling": "starsling-ubuntu-26.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-26.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/docker.yml#buildx-next",
+          ".github/workflows/shell.yml#shellcheck"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "docker-image:linux/amd64",
+        "docker-image:linux/arm/v7",
+        "docker-image:linux/arm64",
+        "shellcheck"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/docker.yml",
+        ".github/workflows/release.yml",
+        ".github/workflows/shell.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/docker.yml#buildx-next": 1,
+        ".github/workflows/shell.yml#shellcheck": 1
+      },
+      "observedCommands": [
+        "go build -v -trimpath -tags \"pam prod\"",
+        "pnpm --filter gogs-web run build"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "docker:buildx-next:build",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:go-binary:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm/v7",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "docker:buildx-next:web-assets",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "shellcheck",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 9,
+          "total": 9,
+          "percentage": 100
+        },
+        "scopeHash": "c7bf5cc75901c2c3bcbcc9a7e5f50fc4a9b7b0c35e3454f91191297090752e67"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep5-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "00062cc78626a7349da9af742be97fae41288542",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 111
+    }
+  }
+]

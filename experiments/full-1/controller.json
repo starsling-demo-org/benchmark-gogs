@@ -1,0 +1,95 @@
+{
+  "owner": "full-1",
+  "expectedRefs": {
+    "refs/heads/showcase": "5d344143203094850e0195a6dac7bdd60f6401e2",
+    "refs/heads/main": null
+  },
+  "workflowStates": {
+    ".github/workflows/docker.yml": "absent",
+    ".github/workflows/go.yml": "absent",
+    ".github/workflows/lock.yml": "absent",
+    ".github/workflows/release.yml": "absent",
+    ".github/workflows/shell.yml": "absent",
+    ".github/workflows/web.yml": "absent"
+  },
+  "dispatches": {
+    "full-1:full-1-main-push-cold-rep1-starsling-baseline:main-push:starsling-baseline": {
+      "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167",
+      "dispatchedAt": "2026-11-16T04:46:09.696Z"
+    },
+    "full-1:full-1-main-push-cold-rep1-github-baseline:main-push:github-baseline": {
+      "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+      "dispatchedAt": "2026-11-16T05:03:49.891Z"
+    },
+    "full-1:full-1-main-push-cold-rep1-starsling-patched:main-push:starsling-patched": {
+      "headSha": "7ba7b4f3a119724bdd3e5c455f9988100b2183a7",
+      "dispatchedAt": "2026-11-16T05:52:15.075Z"
+    },
+    "full-1:full-1-main-push-cold-rep2-starsling-patched:main-push:starsling-patched": {
+      "headSha": "7ba7b4f3a119724bdd3e5c455f9988100b2183a7",
+      "dispatchedAt": "2026-11-16T06:00:18.361Z"
+    },
+    "full-1:full-1-main-push-cold-rep2-starsling-baseline:main-push:starsling-baseline": {
+      "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167",
+      "dispatchedAt": "2026-11-16T06:07:38.587Z"
+    },
+    "full-1:full-1-main-push-cold-rep2-github-baseline:main-push:github-baseline": {
+      "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+      "dispatchedAt": "2026-11-16T06:25:30.437Z"
+    },
+    "full-1:full-1-main-push-cold-rep3-starsling-patched:main-push:starsling-patched": {
+      "headSha": "7ba7b4f3a119724bdd3e5c455f9988100b2183a7",
+      "dispatchedAt": "2026-11-16T06:56:46.014Z"
+    },
+    "full-1:full-1-main-push-cold-rep3-github-baseline:main-push:github-baseline": {
+      "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+      "dispatchedAt": "2026-11-16T07:04:06.253Z"
+    },
+    "full-1:full-1-main-push-cold-rep3-starsling-baseline:main-push:starsling-baseline": {
+      "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167",
+      "dispatchedAt": "2026-11-16T07:34:03.566Z"
+    },
+    "full-1:full-1-main-push-cold-rep4-github-baseline:main-push:github-baseline": {
+      "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+      "dispatchedAt": "2026-11-16T07:49:41.185Z"
+    },
+    "full-1:full-1-main-push-cold-rep4-starsling-patched:main-push:starsling-patched": {
+      "headSha": "7ba7b4f3a119724bdd3e5c455f9988100b2183a7",
+      "dispatchedAt": "2026-11-16T08:21:28.801Z"
+    },
+    "full-1:full-1-main-push-cold-rep4-starsling-baseline:main-push:starsling-baseline": {
+      "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167",
+      "dispatchedAt": "2026-11-16T08:29:06.753Z"
+    },
+    "full-1:full-1-main-push-cold-rep5-starsling-baseline:main-push:starsling-baseline": {
+      "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167",
+      "dispatchedAt": "2026-11-16T08:45:24.645Z"
+    },
+    "full-1:full-1-main-push-cold-rep5-github-baseline:main-push:github-baseline": {
+      "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+      "dispatchedAt": "2026-11-16T09:01:15.401Z"
+    },
+    "full-1:full-1-main-push-cold-rep5-starsling-patched:main-push:starsling-patched": {
+      "headSha": "7ba7b4f3a119724bdd3e5c455f9988100b2183a7",
+      "dispatchedAt": "2026-11-16T09:41:20.025Z"
+    }
+  },
+  "leaseSha": "99daaccc9760aa83a1487dde09b6df50711b4b90",
+  "initialRefs": {
+    "refs/heads/bench/control": "756623d7462052f0dad63b1712a64798aafadb80",
+    "refs/heads/showcase": "5d344143203094850e0195a6dac7bdd60f6401e2",
+    "refs/heads/starsling/develop": "e9982b8f230e1905a5edfcf05895ed986fa74e0a"
+  },
+  "recovery": {
+    "phase": "completed",
+    "restoredRefs": {
+      "refs/heads/showcase": "5d344143203094850e0195a6dac7bdd60f6401e2",
+      "refs/heads/main": null
+    },
+    "disabledWorkflows": [
+      ".github/workflows/docker.yml",
+      ".github/workflows/release.yml",
+      ".github/workflows/shell.yml"
+    ]
+  }
+}

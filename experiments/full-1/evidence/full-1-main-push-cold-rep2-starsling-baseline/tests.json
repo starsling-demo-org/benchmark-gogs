@@ -1,0 +1,49 @@
+{
+  "tests": [
+    {
+      "testId": "docker:buildx-next:build",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:go-binary:linux/amd64",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:go-binary:linux/arm/v7",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:go-binary:linux/arm64",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:image:linux/amd64",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:image:linux/arm/v7",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:image:linux/arm64",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "docker:buildx-next:web-assets",
+      "verdict": "passed",
+      "mode": "executed"
+    },
+    {
+      "testId": "shellcheck",
+      "verdict": "passed",
+      "mode": "executed"
+    }
+  ]
+}

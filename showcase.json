@@ -1,0 +1,29 @@
+{
+  "experiment": "full-1",
+  "title": "gogs",
+  "stars": "47.9k",
+  "same": "Every counted sample's results were read from its own job logs. In all 15 samples (5 per configuration) the same 9 checks ran and passed: the `Dockerfile.next` image build, the web assets, the Go binary and the image for each of linux/amd64, linux/arm64 and linux/arm/v7, and shellcheck. The binary is not byte-identical: with the fix, clang compiles the C parts (the PAM binding and Go's cgo runtime) instead of gcc, so the `gogs` binary differs in size by at most 3.3 KB per platform (out of about 120 MB), measured in the earlier showcase runs.",
+  "notes": [
+    "**Default branch.** The default branch is `main`.",
+    "**Workflows in this merge.** The replayed merge changes `.github/workflows/docker.yml` and `docker/build/finalize.sh`, so upstream's own path filters fire `docker.yml`, `shell.yml` and `release.yml`. `go.yml` and `web.yml` do not fire for this merge (their path filters do not match), and `lock.yml` is scheduled only. The Go tests, the Windows, macOS and MySQL jobs and the web build are therefore not part of these numbers.",
+    "**Bench-only changes, identical in every configuration (GitHub, StarSling unchanged, StarSling + agent PR) and never part of the agent PR:**\n  - Identity remap: upstream runs `buildx-next` and `deploy-demo` only when `github.repository == 'gogs/gogs'`. That name is remapped to this repository; the rest of each condition is kept.\n  - Switched off: the three registry logins (Docker Hub, GHCR, DigitalOcean), the image push (`push: false`; the image is built but not published), the Trivy scan of the pushed image, the `deploy-demo` job and the failure e-mail steps. None of the secrets they need exist here.\n  - Excluded job: `release.yml` `build`, which builds, signs and notarizes release archives with Apple secrets. It is gated on `gogs/gogs` and is kept off explicitly. Upstream did run it on this merge, so that upstream work is not in any column.\n  - Excluded job: `web.yml` `web` (it fails in the replay because it compares against a branch the replay checkout lacks). It does not fire for this merge anyway.\n  - Secret references for secrets that do not exist here are removed; they were already empty in every configuration.",
+    "**Runner sizes.** Upstream's `ubuntu-latest` jobs run on GitHub `ubuntu-26.04-4core` (4 vCPU, 16 GiB) and StarSling `starsling-ubuntu-26.04` (4 vCPU, 16 GiB). StarSling's 4 vCPU runners can burst to 5 vCPU and 32 GB RAM (Afterburner); GitHub's 4-core runners have 16 GB. Every job in this merge runs on those labels.",
+    "**Upstream reference (context only; not like-for-like; not the headline).** What upstream sees today: a median 32.9 min per merge to the default branch on upstream's own GitHub runners (n=10, most recent comparable merges to the default branch within the last 60 days; standard runners, warm caches, many commits; includes image push; not a like-for-like replay).",
+    "**PR updates:** not measured. On a pull request, upstream's own conditions skip the long `buildx-next` job (it runs only on a merge) and build the image for linux/amd64 only, so the emulated ARM builds the agent PR removes do not run there."
+  ],
+  "agentPullRequests": [],
+  "layout": "showcase",
+  "agentPrs": [
+    {
+      "url": "https://github.com/starsling-demo-org/benchmark-gogs/pull/1",
+      "summary": "Cross-compile the ARM builds of `Dockerfile.next` with the xx helper instead of running the Go and C compile under CPU emulation. One file, `Dockerfile.next`; the build checks that each binary is for the target CPU.",
+      "experiment": {
+        "id": "full-1",
+        "before": "starsling-baseline",
+        "after": "starsling-patched"
+      }
+    }
+  ],
+  "whatWasSlow": "Every merge to gogs's default branch that touches the Docker files runs one long job, `buildx-next`, which builds the `Dockerfile.next` image for three CPU types: linux/amd64, linux/arm64 and linux/arm/v7. The two ARM builds ran under a CPU emulator, so the whole Go and C compile for those platforms ran at emulation speed. That one job is almost the whole wait: in this benchmark it took a median 1520 s of the 1524 s merge on GitHub, and 601 s of the 610 s merge on StarSling runners before any change. Cold, with no caches.",
+  "whatWeChanged": "The original showcase for this project proposed one fix: cross-compile the ARM builds instead of emulating them. We re-measured it on its own on StarSling, cold, with 5 runs on each side (the CI as it was, and the CI with the fix), on the step it changes.\n\n| Fix | Result | Decision |\n|---|---|---|\n| Cross-compile the ARM builds of `Dockerfile.next` with the xx helper instead of emulating them | Image build step: 583 s to 94 s (median), **6.2x faster**; every run with the fix beat every run without it | Kept (agent PR 1) |\n\nThe fix uses no cache, so the full benchmark runs cold only. It compares GitHub-hosted runners, StarSling with the CI unchanged, and StarSling with the agent PR applied, over 5 rounds."
+}

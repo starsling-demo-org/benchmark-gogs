@@ -1,0 +1,65 @@
+{
+  "experimentId": "diag-1",
+  "sampleId": "diag-1-main-push-cold-rep1-github-baseline",
+  "scenarioName": "main-push",
+  "variant": "github-baseline",
+  "profileName": "cold",
+  "currentStep": "completed",
+  "completedSteps": [
+    "1_acquire_lease",
+    "2_register_placeholders",
+    "3_disable_workflows_and_reset_refs",
+    "4_install_and_verify_trees",
+    "5_enable_scenario_workflows",
+    "6_trigger_event",
+    "7_await_downstream_completion"
+  ],
+  "controlBranch": "bench/control",
+  "defaultBranch": "showcase",
+  "benchmarkOwnedRefs": [
+    "refs/heads/main",
+    "refs/heads/showcase",
+    "refs/heads/bench/pr/main-push/head"
+  ],
+  "previousBenchmarkRefs": {
+    "refs/heads/main": null,
+    "refs/heads/showcase": "5d344143203094850e0195a6dac7bdd60f6401e2",
+    "refs/heads/bench/pr/main-push/head": null
+  },
+  "observedUnrelatedRefs": {
+    "refs/heads/bench/control": "faa0e6fb5e84e2a78f14344a3af0f0c5f3de6d9f",
+    "refs/heads/starsling/develop": "e9982b8f230e1905a5edfcf05895ed986fa74e0a"
+  },
+  "registeredPlaceholderWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/go.yml",
+    ".github/workflows/lock.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml",
+    ".github/workflows/web.yml"
+  ],
+  "disabledWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/go.yml",
+    ".github/workflows/lock.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml",
+    ".github/workflows/web.yml"
+  ],
+  "enabledWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml"
+  ],
+  "updatedAt": "2026-11-16T03:38:26.737Z",
+  "leaseAcquiredAt": "2026-11-16T03:02:43.117Z",
+  "leaseHolder": "diag-1:diag-1-main-push-cold-rep1-github-baseline",
+  "installedTreeHash": "a952752500d0a27e9f3fac2c150ad9dc482ea634bac6d5cf1651ffd2e9fdb051",
+  "dispatchRecord": {
+    "idempotencyKey": "diag-1:diag-1-main-push-cold-rep1-github-baseline:main-push:github-baseline",
+    "dispatchedAt": "2026-11-16T03:12:00.473Z",
+    "event": "push",
+    "targetRef": "refs/heads/main",
+    "headSha": "19b8e48f053faaa757905cd0655e3ae1593ec85d"
+  }
+}

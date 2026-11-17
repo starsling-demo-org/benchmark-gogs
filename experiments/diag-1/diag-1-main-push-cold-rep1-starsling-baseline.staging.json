@@ -1,0 +1,65 @@
+{
+  "experimentId": "diag-1",
+  "sampleId": "diag-1-main-push-cold-rep1-starsling-baseline",
+  "scenarioName": "main-push",
+  "variant": "starsling-baseline",
+  "profileName": "cold",
+  "currentStep": "superseded",
+  "completedSteps": [
+    "1_acquire_lease",
+    "2_register_placeholders",
+    "3_disable_workflows_and_reset_refs",
+    "4_install_and_verify_trees",
+    "5_enable_scenario_workflows",
+    "6_trigger_event"
+  ],
+  "controlBranch": "bench/control",
+  "defaultBranch": "showcase",
+  "benchmarkOwnedRefs": [
+    "refs/heads/main",
+    "refs/heads/showcase",
+    "refs/heads/bench/pr/main-push/head"
+  ],
+  "previousBenchmarkRefs": {
+    "refs/heads/main": "19b8e48f053faaa757905cd0655e3ae1593ec85d",
+    "refs/heads/showcase": "cbcb95fee66a96e1823eaa5cf2e796992556c4e5",
+    "refs/heads/bench/pr/main-push/head": null
+  },
+  "observedUnrelatedRefs": {
+    "refs/heads/bench/control": "faa0e6fb5e84e2a78f14344a3af0f0c5f3de6d9f",
+    "refs/heads/starsling/develop": "e9982b8f230e1905a5edfcf05895ed986fa74e0a"
+  },
+  "registeredPlaceholderWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/go.yml",
+    ".github/workflows/lock.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml",
+    ".github/workflows/web.yml"
+  ],
+  "disabledWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/go.yml",
+    ".github/workflows/lock.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml",
+    ".github/workflows/web.yml"
+  ],
+  "enabledWorkflows": [
+    ".github/workflows/docker.yml",
+    ".github/workflows/release.yml",
+    ".github/workflows/shell.yml"
+  ],
+  "updatedAt": "2026-11-16T03:46:17.476Z",
+  "leaseAcquiredAt": "2026-11-16T03:38:28.653Z",
+  "leaseHolder": "diag-1:diag-1-main-push-cold-rep1-starsling-baseline",
+  "installedTreeHash": "02be4420f738211ad460ae356de0bacdde13a63dbdaedc25aca8acd1c58667aa",
+  "dispatchRecord": {
+    "idempotencyKey": "diag-1:diag-1-main-push-cold-rep1-starsling-baseline:main-push:starsling-baseline",
+    "dispatchedAt": "2026-11-16T03:44:08.594Z",
+    "event": "push",
+    "targetRef": "refs/heads/main",
+    "headSha": "f5ecc602da8dbe497624ef1cfcc111932de1e167"
+  },
+  "supersededReason": "Sample failed; replaced by diag-1-main-push-cold-rep1-starsling-baseline-retry1"
+}
