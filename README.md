@@ -123,7 +123,7 @@ Each cell is the whole wait for that merge and links to its run.
 6. **Check.** Replays are compared job by job with upstream's own runs for the same commit, and every sample's test verdicts, coverage and cache restores are read from its own job logs.
 
 - **Control configuration.** Each round also replayed the event on StarSling runners with the CI unchanged, as an internal control. It is not part of this comparison, and its samples are not shown in the tables on this page; they are in the data files under `benchmark/`.
-- **Default branch.** The default branch is `main`.
+- **Default branch.** Upstream's default branch is `main`.
 - **Workflows in this merge.** The replayed merge changes `.github/workflows/docker.yml` and `docker/build/finalize.sh`, so upstream's own path filters fire `docker.yml`, `shell.yml` and `release.yml`. `go.yml` and `web.yml` do not fire for this merge (their path filters do not match), and `lock.yml` is scheduled only. The Go tests, the Windows, macOS and MySQL jobs and the web build are therefore not part of these numbers.
 - **Bench-only changes, identical in every configuration and never part of the agent PR:**
   - Identity remap: upstream runs `buildx-next` and `deploy-demo` only when `github.repository == 'gogs/gogs'`. That name is remapped to this repository; the rest of each condition is kept.
