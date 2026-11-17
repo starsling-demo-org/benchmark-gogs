@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": 1,
+  "scenarioName": "main-push",
+  "upstreamRepository": "gogs/gogs",
+  "event": "push",
+  "headSha": "00062cc78626a7349da9af742be97fae41288542",
+  "retrievedAt": "2026-11-15T23:35:21.094Z",
+  "runs": [
+    {
+      "runId": 42738563561,
+      "attempt": 1,
+      "workflowPath": ".github/workflows/docker.yml",
+      "workflowName": "Docker",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563561",
+      "createdAt": "2026-11-10T01:50:10Z",
+      "startedAt": "2026-11-10T01:50:10Z",
+      "jobs": [
+        {
+          "id": 129573712104,
+          "name": "buildx-next",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T02:17:42Z",
+          "durationSeconds": 1649,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up QEMU",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 4,
+              "name": "Set up Docker Buildx",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 5,
+              "name": "Inspect builder",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 6,
+              "name": "Login to Docker Hub",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 7,
+              "name": "Login to GitHub Container registry",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Login to DigitalOcean Container registry",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 9,
+              "name": "Build and push next-gen images",
+              "conclusion": "success",
+              "durationSeconds": 1574
+            },
+            {
+              "number": 10,
+              "name": "Scan for container vulnerabilities",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 11,
+              "name": "Send email on failure",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 15,
+              "name": "Post Scan for container vulnerabilities",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 16,
+              "name": "Post Build and push next-gen images",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 17,
+              "name": "Post Login to DigitalOcean Container registry",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 18,
+              "name": "Post Login to GitHub Container registry",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 19,
+              "name": "Post Login to Docker Hub",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 20,
+              "name": "Post Set up Docker Buildx",
+              "conclusion": "success",
+              "durationSeconds": 33
+            },
+            {
+              "number": 21,
+              "name": "Post Set up QEMU",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 22,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 23,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573713086,
+          "name": "buildx-pull-request",
+          "status": "completed",
+          "conclusion": "skipped",
+          "startedAt": "2026-11-10T01:50:11Z",
+          "completedAt": "2026-11-10T01:50:11Z",
+          "durationSeconds": 0,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": []
+        },
+        {
+          "id": 129573713944,
+          "name": "buildx-next-release",
+          "status": "completed",
+          "conclusion": "skipped",
+          "startedAt": "2026-11-10T01:50:11Z",
+          "completedAt": "2026-11-10T01:50:11Z",
+          "durationSeconds": 0,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": []
+        },
+        {
+          "id": 129573714381,
+          "name": "buildx-next-pull-request",
+          "status": "completed",
+          "conclusion": "skipped",
+          "startedAt": "2026-11-10T01:50:11Z",
+          "completedAt": "2026-11-10T01:50:11Z",
+          "durationSeconds": 0,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": []
+        },
+        {
+          "id": 129573765633,
+          "name": "buildx-release",
+          "status": "completed",
+          "conclusion": "skipped",
+          "startedAt": "2026-11-10T01:50:19Z",
+          "completedAt": "2026-11-10T01:50:11Z",
+          "durationSeconds": 0,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": []
+        },
+        {
+          "id": 129584230302,
+          "name": "deploy-demo",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T02:17:45Z",
+          "completedAt": "2026-11-10T02:18:10Z",
+          "durationSeconds": 25,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Configure kubectl",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 3,
+              "name": "Restart gogs-demo deployment",
+              "conclusion": "success",
+              "durationSeconds": 21
+            },
+            {
+              "number": 4,
+              "name": "Send email on failure",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 5,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": 42738563665,
+      "attempt": 1,
+      "workflowPath": ".github/workflows/release.yml",
+      "workflowName": "Release",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563665",
+      "createdAt": "2026-11-10T01:50:10Z",
+      "startedAt": "2026-11-10T01:50:10Z",
+      "jobs": [
+        {
+          "id": 129573712177,
+          "name": "Build windows/amd64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:51:46Z",
+          "durationSeconds": 93,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 12
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 10
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 49
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712430,
+          "name": "Build linux/arm64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:52:17Z",
+          "durationSeconds": 124,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 14
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 64
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712450,
+          "name": "Build linux/amd64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:51:56Z",
+          "durationSeconds": 103,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 12
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 10
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 50
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 9
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712465,
+          "name": "Build windows/386",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:51:46Z",
+          "durationSeconds": 93,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 10
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 49
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712478,
+          "name": "Build windows/arm64_mws",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:14Z",
+          "completedAt": "2026-11-10T01:52:34Z",
+          "durationSeconds": 140,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 17
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 77
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712487,
+          "name": "Build darwin/amd64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:14Z",
+          "completedAt": "2026-11-10T01:53:32Z",
+          "durationSeconds": 198,
+          "labels": [
+            "macos-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 47
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 10
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 20
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 55
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "success",
+              "durationSeconds": 36
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 3
+            }
+          ]
+        },
+        {
+          "id": 129573712492,
+          "name": "Build windows/386_mws",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:52:02Z",
+          "durationSeconds": 109,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 12
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 12
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 61
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712564,
+          "name": "Build linux/386",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:52:17Z",
+          "durationSeconds": 124,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 13
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 63
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 8
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 9
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712613,
+          "name": "Build windows/amd64_mws",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:52:14Z",
+          "durationSeconds": 121,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 13
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 9
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 12
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 62
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129573712658,
+          "name": "Build darwin/arm64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:14Z",
+          "completedAt": "2026-11-10T01:52:23Z",
+          "durationSeconds": 129,
+          "labels": [
+            "macos-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 30
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 7
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 7
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 14
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 13
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "success",
+              "durationSeconds": 32
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 2
+            }
+          ]
+        },
+        {
+          "id": 129573712791,
+          "name": "Build windows/arm64",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:51:48Z",
+          "durationSeconds": 95,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Check out code",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 3,
+              "name": "Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 11
+            },
+            {
+              "number": 4,
+              "name": "Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 5,
+              "name": "Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 6,
+              "name": "Build web assets",
+              "conclusion": "success",
+              "durationSeconds": 13
+            },
+            {
+              "number": 7,
+              "name": "Determine version",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 8,
+              "name": "Build binary",
+              "conclusion": "success",
+              "durationSeconds": 50
+            },
+            {
+              "number": 9,
+              "name": "Import Apple signing certificate",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Sign macOS binary",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Prepare archive contents",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 12,
+              "name": "Create archives",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 13,
+              "name": "Notarize macOS archive",
+              "conclusion": "skipped",
+              "durationSeconds": 0
+            },
+            {
+              "number": 14,
+              "name": "Upload to release",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 25,
+              "name": "Post Set up Node",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 26,
+              "name": "Post Set up pnpm",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 27,
+              "name": "Post Set up Go",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 28,
+              "name": "Post Check out code",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 29,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 129574945524,
+          "name": "Notify on failure",
+          "status": "completed",
+          "conclusion": "skipped",
+          "startedAt": "2026-11-10T01:53:32Z",
+          "completedAt": "2026-11-10T01:53:32Z",
+          "durationSeconds": 0,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": []
+        }
+      ]
+    },
+    {
+      "runId": 42738563871,
+      "attempt": 1,
+      "workflowPath": ".github/workflows/shell.yml",
+      "workflowName": "Shell",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563871",
+      "createdAt": "2026-11-10T01:50:10Z",
+      "startedAt": "2026-11-10T01:50:10Z",
+      "jobs": [
+        {
+          "id": 129573711834,
+          "name": "Shellcheck",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-10T01:50:13Z",
+          "completedAt": "2026-11-10T01:50:21Z",
+          "durationSeconds": 8,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Run actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 3,
+              "name": "Run ShellCheck",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 6,
+              "name": "Post Run actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 7,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "wallClockSeconds": 1680,
+    "runnerSeconds": 3011
+  }
+}

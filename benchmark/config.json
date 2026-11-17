@@ -1,0 +1,748 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "gogs/gogs",
+    "commitSha": "00062cc78626a7349da9af742be97fae41288542",
+    "defaultBranch": "main"
+  },
+  "benchmarkRepository": {
+    "repository": "starsling-demo-org/benchmark-gogs",
+    "controlBranch": "bench/control",
+    "defaultBranch": "showcase",
+    "replayBranch": "main"
+  },
+  "scenarios": {
+    "main-push": {
+      "name": "main-push",
+      "description": "Merge of 00062cc78626 to main",
+      "event": "push",
+      "main": {
+        "branch": "main",
+        "beforeSha": "8a8ebb1f45fe56d8906e86cb0d453a6f39903d7a",
+        "afterSha": "00062cc78626a7349da9af742be97fae41288542",
+        "changedPaths": [
+          ".github/workflows/docker.yml",
+          "docker/build/finalize.sh"
+        ]
+      },
+      "referenceRuns": [
+        {
+          "workflowPath": ".github/workflows/docker.yml",
+          "runId": 42738563561,
+          "attempt": 1,
+          "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563561"
+        },
+        {
+          "workflowPath": ".github/workflows/release.yml",
+          "runId": 42738563665,
+          "attempt": 1,
+          "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563665"
+        },
+        {
+          "workflowPath": ".github/workflows/shell.yml",
+          "runId": 42738563871,
+          "attempt": 1,
+          "htmlUrl": "https://github.com/gogs/gogs/actions/runs/42738563871"
+        }
+      ]
+    },
+    "seed-parent": {
+      "name": "seed-parent",
+      "role": "seed",
+      "description": "Warm seed: the previous push (8a8ebb1f45fe onto 1f93c4245d9b)",
+      "event": "push",
+      "main": {
+        "branch": "main",
+        "beforeSha": "1f93c4245d9b67b388ee39a03a967494fae8f0ad",
+        "afterSha": "8a8ebb1f45fe56d8906e86cb0d453a6f39903d7a",
+        "changedPaths": [
+          "CHANGELOG.md",
+          "cmd/gogs/internal/web/repo_context.go",
+          "cmd/gogs/internal/web/web_repo.go",
+          "cmd/gogs/internal/web/webapi_repo.go",
+          "cmd/gogs/serv.go",
+          "internal/context/auth.go",
+          "internal/database/users.go",
+          "internal/ptrx/ptrx.go",
+          "internal/ptrx/ptrx_test.go",
+          "internal/route/home.go",
+          "internal/route/lfs/route.go",
+          "internal/route/lfs/route_test.go",
+          "internal/route/repo/http.go"
+        ]
+      },
+      "referenceRuns": []
+    }
+  },
+  "patches": [
+    {
+      "id": "stack-0",
+      "source": "local",
+      "pathOrUrl": "patches/stack-0.patch",
+      "description": "levers stacked in order: 01-dockerfile-next-cross-compile"
+    }
+  ],
+  "runnerMapping": {
+    "defaultMap": {
+      "ubuntu-latest": {
+        "github": "ubuntu-26.04-4core",
+        "starsling": "starsling-ubuntu-26.04"
+      },
+      "ubuntu-24.04": {
+        "starsling": "starsling-ubuntu-24.04"
+      },
+      "ubuntu-26.04": {
+        "starsling": "starsling-ubuntu-26.04"
+      },
+      "ubuntu-slim": {
+        "starsling": "starsling-ubuntu-24.04-2"
+      },
+      "ubuntu-22.04": {
+        "github": "ubuntu-22.04-4core",
+        "starsling": "starsling-ubuntu-24.04"
+      },
+      "macos-latest": {
+        "github": "macos-26",
+        "starsling": "macos-26"
+      },
+      "windows-latest": {
+        "github": "windows-2025-4core",
+        "starsling": "windows-2025-4core"
+      }
+    },
+    "runnerSpecs": {
+      "ubuntu-latest": {
+        "label": "ubuntu-latest",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "ubuntu-24.04": {
+        "label": "ubuntu-24.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "ubuntu-26.04": {
+        "label": "ubuntu-26.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "ubuntu-slim": {
+        "label": "ubuntu-slim",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 1,
+        "ramGiB": 5
+      },
+      "starsling-ubuntu-24.04-2": {
+        "label": "starsling-ubuntu-24.04-2",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 2,
+        "ramGiB": 8
+      },
+      "starsling-ubuntu-24.04": {
+        "label": "starsling-ubuntu-24.04",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "starsling-ubuntu-26.04": {
+        "label": "starsling-ubuntu-26.04",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "macos-latest": {
+        "label": "macos-latest",
+        "provider": "github",
+        "os": "macos",
+        "arch": "arm64",
+        "vcpu": 3,
+        "ramGiB": 7
+      },
+      "windows-latest": {
+        "label": "windows-latest",
+        "provider": "github",
+        "os": "windows",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "ubuntu-26.04-4core": {
+        "label": "ubuntu-26.04-4core",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "ubuntu-22.04-4core": {
+        "label": "ubuntu-22.04-4core",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "macos-26": {
+        "label": "macos-26",
+        "provider": "github",
+        "os": "macos",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      },
+      "windows-2025-4core": {
+        "label": "windows-2025-4core",
+        "provider": "github",
+        "os": "windows",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16
+      }
+    },
+    "jobOverrides": {
+      ".github/workflows/go.yml#test-windows": {
+        "github": "windows-2025-4core",
+        "starsling": "windows-2025-4core"
+      }
+    }
+  },
+  "profiles": {
+    "cold": {
+      "name": "cold",
+      "actionsCache": "cold",
+      "crossRunArtifacts": "none",
+      "restoreExpectations": {},
+      "testResultReuseAllowed": false
+    },
+    "warm": {
+      "name": "warm",
+      "actionsCache": "warm",
+      "crossRunArtifacts": "seeded",
+      "seedScenario": "seed-parent",
+      "restoreExpectations": {},
+      "testResultReuseAllowed": true,
+      "amortizationHorizonRuns": 10
+    }
+  },
+  "adaptations": [
+    {
+      "id": "repo-gate-open",
+      "kind": "repository-identity-remap",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "github.repository == 'gogs/gogs'",
+      "toReplacement": "github.repository == 'starsling-demo-org/benchmark-gogs'",
+      "expectedMatches": 1,
+      "reason": "buildx-next: upstream runs the push-lane Docker job only in gogs/gogs; the repository name in its if: is remapped to the benchmark repo (rest of the guard kept)",
+      "blocksFullParity": false
+    },
+    {
+      "id": "no-registry-login-dockerhub",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        "5",
+        "if"
+      ],
+      "setValue": false,
+      "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-registry-login-ghcr",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        "6",
+        "if"
+      ],
+      "setValue": false,
+      "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-registry-login-digitalocean",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        "7",
+        "if"
+      ],
+      "setValue": false,
+      "reason": "no secrets in the benchmark repo; the login only serves the push (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-image-push",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        "8",
+        "with",
+        "push"
+      ],
+      "setValue": false,
+      "reason": "buildx-next must not publish gogs/gogs:edge, ghcr or DigitalOcean images (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-trivy-scan",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        "9",
+        "if"
+      ],
+      "setValue": false,
+      "reason": "Trivy scans the pushed image, which does not exist (step index +1: instrumentation inserts the harness step at index 0 before adaptations apply)",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-demo-deploy",
+      "kind": "deployment-guard",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "deploy-demo",
+      "fromPattern": "github.event_name == 'push'",
+      "toReplacement": "false && github.event_name == 'push'",
+      "expectedMatches": 1,
+      "reason": "deploy-demo needs the DigitalOcean kubeconfig; upstream's job if: kept, 'false &&' in front",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-failure-email-docker",
+      "kind": "deployment-guard",
+      "workflowFile": ".github/workflows/docker.yml",
+      "fromPattern": "failure()",
+      "toReplacement": "false && failure()",
+      "expectedMatches": 4,
+      "reason": "send-email-on-failure steps in docker.yml (4: buildx-next, deploy-demo, buildx-release, buildx-next-release): no SMTP secrets; upstream's failure() guard kept",
+      "blocksFullParity": false
+    },
+    {
+      "id": "no-failure-email-go",
+      "kind": "deployment-guard",
+      "workflowFile": ".github/workflows/go.yml",
+      "fromPattern": "failure() && github.event_name == 'push'",
+      "toReplacement": "false && failure() && github.event_name == 'push'",
+      "expectedMatches": 2,
+      "reason": "send-email-on-failure steps in go.yml (2): no SMTP secrets; upstream's guard kept",
+      "blocksFullParity": false
+    },
+    {
+      "id": "identity-deploy-demo",
+      "kind": "repository-identity-remap",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "deploy-demo",
+      "fromPattern": "github.repository == 'gogs/gogs'",
+      "toReplacement": "github.repository == 'starsling-demo-org/benchmark-gogs'",
+      "expectedMatches": 1,
+      "reason": "docker.yml job deploy-demo: identity remapped to the benchmark repo like repo-gate-open; the job stays off through no-demo-deploy ('false &&' in front)",
+      "blocksFullParity": false
+    },
+    {
+      "id": "no-release-build",
+      "kind": "repository-identity-remap",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "github.repository == 'gogs/gogs'",
+      "toReplacement": "false && github.repository == 'gogs/gogs'",
+      "expectedMatches": 1,
+      "reason": "release.yml job build: upstream builds, signs and notarizes release archives on main pushes with Apple secrets that do not exist here; gated on gogs/gogs, so it already skips in the benchmark repo. Kept off explicitly. OWNER: upstream did run it on the pinned push, so this skips upstream work",
+      "blocksFullParity": true
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-dockerhub-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-dockerhub-token",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-digitalocean-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.DIGITALOCEAN_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DIGITALOCEAN_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-digitalocean-access-token",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DIGITALOCEAN_ACCESS_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-deploy-demo-digitalocean-k8s-cluster-kubeconfig",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "deploy-demo",
+      "fromPattern": "${{ secrets.DIGITALOCEAN_K8S_CLUSTER_KUBECONFIG }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DIGITALOCEAN_K8S_CLUSTER_KUBECONFIG does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-deploy-demo-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "deploy-demo",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-deploy-demo-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "deploy-demo",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-release-dockerhub-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-release",
+      "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-release-dockerhub-token",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-release",
+      "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-release-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-release",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-release-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-release",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-release-dockerhub-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next-release",
+      "fromPattern": "${{ secrets.DOCKERHUB_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-release-dockerhub-token",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next-release",
+      "fromPattern": "${{ secrets.DOCKERHUB_TOKEN }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "DOCKERHUB_TOKEN does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-release-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next-release",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-docker-buildx-next-release-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/docker.yml",
+      "jobId": "buildx-next-release",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-developer-id-certificate-base64",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_DEVELOPER_ID_CERTIFICATE_BASE64 }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_DEVELOPER_ID_CERTIFICATE_BASE64 does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-developer-id-certificate-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_DEVELOPER_ID_CERTIFICATE_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_DEVELOPER_ID_CERTIFICATE_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-keychain-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_KEYCHAIN_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_KEYCHAIN_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-developer-identity",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_DEVELOPER_IDENTITY }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_DEVELOPER_IDENTITY does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-notary-issuer-id",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_NOTARY_ISSUER_ID }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_NOTARY_ISSUER_ID does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-notary-key-base64",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_NOTARY_KEY_BASE64 }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_NOTARY_KEY_BASE64 does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-build-apple-notary-key-id",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "build",
+      "fromPattern": "${{ secrets.APPLE_NOTARY_KEY_ID }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "APPLE_NOTARY_KEY_ID does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-notify-failure-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "notify-failure",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-release-notify-failure-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/release.yml",
+      "jobId": "notify-failure",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-go-test-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/go.yml",
+      "jobId": "test",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-go-test-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/go.yml",
+      "jobId": "test",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-go-test-windows-smtp-username",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/go.yml",
+      "jobId": "test-windows",
+      "fromPattern": "${{ secrets.SMTP_USERNAME }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_USERNAME does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    },
+    {
+      "id": "secret-gate-go-test-windows-smtp-password",
+      "kind": "secret-gate-annotation",
+      "workflowFile": ".github/workflows/go.yml",
+      "jobId": "test-windows",
+      "fromPattern": "${{ secrets.SMTP_PASSWORD }}",
+      "toReplacement": "",
+      "expectedMatches": 1,
+      "reason": "SMTP_PASSWORD does not exist in the benchmark org, so the expression is already empty in every configuration; the reference is removed to record that (no behaviour change). Steps that need it: see the guard rules of this job, or the job does not run on a benchmarked event.",
+      "blocksFullParity": false
+    }
+  ],
+  "collectors": [],
+  "execution": {
+    "repetitions": 5,
+    "timeoutMinutes": 60,
+    "maxConcurrentExperiments": 1,
+    "pollIntervalSeconds": 15,
+    "apiBudgetPerHour": 252,
+    "maxJobQueueSeconds": 30,
+    "publicRepoGitHubFree": true,
+    "excludedJobs": [
+      {
+        "workflowFile": ".github/workflows/web.yml",
+        "jobId": "web",
+        "reason": "fails in every setup in the replay (ambiguous argument main: compares against a branch the replay checkout lacks); unrelated to the Docker lever; owner-default decision 2026-11-15"
+      }
+    ],
+    "commitIdentity": {
+      "name": "starsling-dev",
+      "email": "290538643+starsling-dev@users.noreply.github.com"
+    }
+  },
+  "instrumentation": true
+}
